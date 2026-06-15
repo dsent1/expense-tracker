@@ -2,9 +2,7 @@ A single page expense tracker built with HTML/CSS + JS for functions. Adds expen
 
 
 To run:
-No install! Simply open index.html in any browser.
-open index.html        # macOS
-# or double-click the file in your file explorer
+No install! Simply open index.html in any browser,  or double-click the file in your file explorer
 
 ## NOTE: Internet connection IS needed for conversion.
 
