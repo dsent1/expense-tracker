@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> <!--metadata-->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <h1>Expense Tracker</h1>
+    <p>Log what you spend &amp; pinch every penny.</p>
+
+    <section>
+        <h2>Add an expense</h2>
+        <form id="expense-form" novalidate>
+            <div>
+                <label for="description">Description</label>
+                <!----Placeholder labels-->
+                <input type="text" id="description" placeholder="Groceries, fees, whatnot." autocomplete="off" />
+            </div>
+            <div>
+                <label for="amount">Amount</label>
+                <input type="number" id="amount" min="0" step="0.01" placeholder="0.00" />
+            </div>
+            <div>
+                <!---Categories-->
+                <label for="category">Category</label>
+                <select id="category">
+                    <option>Food</option>
+                    <option>Transport</option>
+                    <option>Entertainment</option>
+                    <option>Bills</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div>
+                <label for="date">Date</label>
+                <input type="date" id="date" />
+            </div>
+            <button type="submit">Add expense</button>
+        </form>
+        <!---Error handle-->
+        <p id="form-error" role="alert"></p>
+    </section>
+
+    <section>
+        <h2>Summary</h2>
+        <p id="total-amount">$0.00</p>
+        <p id="expense-count">0 expenses shown</p>
+        <ul id="category-totals"></ul>
+        <div>
+            <label for="convert-target">Convert total to</label>
+            <select id="convert-target">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+            </select>
+        </div>
+        <button id="convert-btn">Convert</button>
+        <p id="conversion-result"></p>
+    </section>
+
+    <section>
+        <h2>Your expenses</h2>
+        <div>
+            <label for="filter-category">Filter</label>
+            <select id="filter-category">
+                <option>All</option>
+                <option>Food</option>
+                <option>Transport</option>
+                <option>Entertainment</option>
+                <option>Bills</option>
+                <option>Other</option>
+            </select>
+        </div>
+        <div>
+            <label for="sort-key">Sort by</label>
+            <select id="sort-key">
+                <option value="date">Date</option>
+                <option value="amount">Amount</option>
+            </select>
+        </div>
+        <div>
+            <label for="sort-dir">Order</label>
+            <select id="sort-dir">
+                <option value="desc">Descending</option>
+                <option value="asc">Ascending</option>
+            </select>
+        </div>
+
+        <p id="empty-state" hidden>No expenses yet. Add one above to get started.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Category</th>
+                    <th>Date</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="expense-list"></tbody>
+        </table>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
